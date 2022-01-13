@@ -17,7 +17,7 @@ public class HumanDTO {
 	public String getNick() {
 		return nick;
 	}
-	public void setId(String nick) {
+	public void setNick(String nick) {
 		this.nick = nick;
 	}
 	public String getEmail() {
