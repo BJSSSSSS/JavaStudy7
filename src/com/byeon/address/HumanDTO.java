@@ -1,12 +1,14 @@
 package com.byeon.address;
 
+import java.util.Calendar;
+
 public class HumanDTO {
 
 	private String name;
 	private String nick;
 	private String email;
 	private String tel;
-	private String birthday;
+	private Calendar birthday;
 	
 	public String getName() {
 		return name;
@@ -32,10 +34,10 @@ public class HumanDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getBirthday() {
+	public Calendar getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(Calendar birthday) {
 		this.birthday = birthday;
 	}
 

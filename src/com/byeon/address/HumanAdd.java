@@ -1,6 +1,6 @@
 package com.byeon.address;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -49,10 +49,10 @@ public class HumanAdd {
 		return humanDTO;
 	}
 	
-	
 	public HumanDTO addHuman() {
 		
 		//ArrayList<HumanDTO> ar = new ArrayList<>();
+		Calendar ca = Calendar.getInstance();
 		
 		HumanDTO humanDTO = new HumanDTO();
 
@@ -68,9 +68,28 @@ public class HumanAdd {
 		System.out.println("전화번호 입력 : ");
 		humanDTO.setTel(sc.next());
 		
-		System.out.println("생년월일 입력 : ");
-		humanDTO.setBirthday(sc.next());
-		
+		boolean flag = true;
+		while(flag) {
+			
+			System.out.println("생년월일 입력 ex)20001224 : ");
+			String birth = sc.next(); //20001224
+			
+			int checkBox = birth.length()-birth.replaceAll("[-*^&%)($#@!=.]", "").length();
+			
+			if(birth.length() == 8 && checkBox <= 0) {
+				int y = Integer.parseInt(birth.substring(0,4));
+				int m = Integer.parseInt(birth.substring(4,6));
+				int d = Integer.parseInt(birth.substring(6));
+				ca.set(y, m-1, d, 0, 0, 0);
+				humanDTO.setBirthday(ca);
+				flag = false;
+			}
+			
+			if(flag) {
+				System.out.println("생년월일을 형식에 맞게 재작성 해주십시오");
+			}
+			
+		}
 		return humanDTO;
 		
 	}//addHuman 끝
