@@ -17,6 +17,8 @@ public class HumanMenu {
 		boolean check = true;
 		HumanAdd humanAdd = new HumanAdd();
 		HumanViewAll humanViewAll = new HumanViewAll();
+		HumanFind humanFind = new HumanFind();
+		HumanDelete humanDelete = new HumanDelete();
 		ArrayList<HumanDTO> ar = new ArrayList<>();
 		
 		while(check) {
@@ -41,6 +43,15 @@ public class HumanMenu {
 			
 			case 2:
 				System.out.println("정보 검색!");
+				if(ar.size() == 0) {
+					System.out.println("출력할 명단이 없습니다.");
+				}else {
+					check = humanFind.humanFind(ar);
+					if(check) {
+						System.out.println("검색할 사람의 이름이 없습니다.");
+						System.out.println();
+					}
+				}
 				break;
 				
 			case 3:
@@ -51,6 +62,12 @@ public class HumanMenu {
 				
 			case 4:
 				System.out.println("명단 삭제!");
+				HumanDTO humanDTO2 = humanDelete.humanDelete(ar);
+				if(humanDTO2 != null) {
+					System.out.println("삭제 성공!");
+				}else {
+					System.out.println("삭제 실패ㅠ");
+				}
 				break;
 				
 			case 5:
