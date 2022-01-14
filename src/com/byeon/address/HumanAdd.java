@@ -16,16 +16,15 @@ public class HumanAdd {
 	//찾아서 삭제
 	//리턴 삭제 여부
 	public String humanDelete(List<HumanDTO> ar) {
-		String delete = "0";
 		System.out.println("삭제할 사람의 이름을 입력하세요 : ");
 		// 보통은 이름이 아닌 그 사람을 특정할 수 있는거로 한다
 		// 이름은 중복이 충분히 가능하기 때문
 		String name = sc.next();
-		
+		String delete = null;
 		for(int i=0; i<ar.size(); i++) {
 			if(name.equals(ar.get(i).getName())) {
 				ar.remove(i);
-				delete = "삭제 쿄쿄쿄쿄";
+				delete = "삭제완료!";
 				break;
 			}
 		}

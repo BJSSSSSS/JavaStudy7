@@ -10,7 +10,7 @@ public class HumanView {
 	//문자열을 받아서 출력하는 메서드
 	public void humanView(String delete) {
 		
-		if(delete.equals("삭제 쿄쿄쿄쿄")){
+		if(delete != null){
 			System.out.println("삭제 완료");
 		}else {
 			System.out.println("삭제 실패!");
@@ -67,12 +67,13 @@ public class HumanView {
 		
 		for(int i=0; i<ar.size(); i++) {
 			HumanDTO humanDTO = ar.get(i);
-			System.out.println("이름 : " + humanDTO.getName());
-			System.out.println("별명 : " + humanDTO.getNick());
-			System.out.println("이메일 : " + humanDTO.getEmail());
-			System.out.println("전화번호 : " + humanDTO.getTel());
-			System.out.println("생일 : " + humanDTO.getBirthday());
-			System.out.println();
+			this.humanView(humanDTO);
+//			System.out.println("이름 : " + humanDTO.getName());
+//			System.out.println("별명 : " + humanDTO.getNick());
+//			System.out.println("이메일 : " + humanDTO.getEmail());
+//			System.out.println("전화번호 : " + humanDTO.getTel());
+//			System.out.println("생일 : " + humanDTO.getBirthday());
+//			System.out.println();
 		}
 		
 		
